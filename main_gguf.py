@@ -17,9 +17,10 @@ def generate(model, tokenizer, query, max_new_tokens=128, skip_special_tokens=Fa
     tokenized_input = tokenizer(prompt, add_special_tokens=False, return_tensors="pt").to(model.device)
 
     model.eval()
-    generation_output = model.generate(**tokenized_input,
-                                       eos_token_id=tokenizer.eos_token_id,
-                                       max_new_tokens=max_new_tokens)
+    generation_output = model.generate(
+        **tokenized_input,
+        eos_token_id=tokenizer.eos_token_id,
+        max_new_tokens=max_new_tokens)
 
     output = tokenizer.batch_decode(generation_output,
                                     skip_special_tokens=skip_special_tokens)
@@ -38,7 +39,7 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(model_id, gguf_file=filename)
 
     while True:
-        prompt = input()
+        prompt = input("What request would you like to transform into an SQL query?")
         output = generate(model, tokenizer, prompt)
         print(output)
         cont = input("Would you like to continue? [Y/N] ")
