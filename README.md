@@ -8,6 +8,9 @@ Phi3-mini-4k model fine-tuned for a text-to-SQL task, using a subset of the [gre
 The model was trained with the `LLM_finetuning_TextoSQL_phi3_SZABO.ipynb` notebook (using TRL) on google collab and is deployed in a streamlit app on [Hugging Face Spaces](https://huggingface.co/spaces/szaboildi/phi3-mini-4k-texttosql), the code for which is also duplicated in the `HF_Space_phi3-mini-4k-texttosql/` folder in this repo.
 
 If you would like to run the final model on your local machine, you can do so from using the following commands from your terminal:
-```make setup```
-```make tryout```
+```
+make setup
+source .venv/bin/activate
+make tryout
+```
 Note, that the requirements for this trial are only a subset of the requirements for the fine-tuning.
