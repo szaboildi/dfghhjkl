@@ -1,0 +1,9 @@
+# Virtual environment
+.venv/
+
+# Caches
+models/
+src/__pycache__
+
+# llama-cpp-python
+llama.cpp/*
